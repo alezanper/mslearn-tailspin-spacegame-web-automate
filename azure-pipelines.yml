@@ -238,7 +238,7 @@
               inputs:
                 targetType: 'inline'
                 script: | 
-                  Install-Module VSTeam -Scope CurrentUser -Force
+                  Install-Module VSTeam -Scope CurrentUser -Force -SkipPublisherCheck
                   Set-VSTeamAccount –Account $(Acct) -PersonalAccessToken $(PAT)
                   $methodParameters = @{
                     ProjectName = "$(System.TeamProject)"
