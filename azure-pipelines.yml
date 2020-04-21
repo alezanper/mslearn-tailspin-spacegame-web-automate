@@ -194,6 +194,7 @@
                       Variables = $vars}
                     Update-VSTeamVariableGroup @methodParameters}
   
+                    
   - stage: DBAVerificationApply
     displayName: 'Apply database schema changes'
     dependsOn: DBAVerificationScript
