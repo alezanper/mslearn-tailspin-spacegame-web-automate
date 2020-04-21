@@ -173,7 +173,7 @@
                   $file = Get-Content "d:\a\1\s\GeneratedOutputFiles\tailspindatabase_Script.sql"
                   $containsWord = $file | %{$_ -match "CREATE" -or $_ -match "ALTER" -or $_ -match "DROP"}
                   if ($containsWord -contains $true) {
-                    Install-Module VSTeam -Scope CurrentUser -Force
+                    Install-Module VSTeam -Scope CurrentUser -Force -SkipPublisherCheck
                     Set-VSTeamAccount –Account $(Acct) -PersonalAccessToken $(PAT)
                     $methodParameters = @{
                       ProjectName = "$(System.TeamProject)"
@@ -194,7 +194,7 @@
                       Variables = $vars}
                     Update-VSTeamVariableGroup @methodParameters}
   
-                    
+
   - stage: DBAVerificationApply
     displayName: 'Apply database schema changes'
     dependsOn: DBAVerificationScript
